@@ -2,7 +2,7 @@
 
 This project aims to receive Z-wave home sensors signal with RTL-SDR and identify home activities based on Z-wave sensors data. 
 
-### What is Z-wave? 
+# What is Z-wave? 
 
 As a wireless communication protocol, Z-Wave uses radio frequency signals to control compatible devices, which has been primarily used for home automation due to its low-energy consuming and efficient data exchange. Specifically, Z-Wave operates in a frequency range from 800 MHz to 900 MHz within 100 meters.
 
@@ -18,7 +18,7 @@ As shown in Figure 2, physical frame consists of preamble and start of frame(SoF
 
 Image 2 !!!!!!!!
 
-### Implementation: 
+# Implementation
 ## RTL-SDR
 RTL-SDR is a cheap (about $20) SDR receiver. With Osmocom package installed, the I/Q signal received from RTL-SDR can be read from computer and can be converted to work with SDR software such as Gnuradio. 
 The frequency range of RTL-SDR is from 24 to 1766 MHz, which enables us to receive Z-wave signal with it. The available sample rate are 225 to 300 KHZ  and 900K to 3MHZ. 
@@ -38,7 +38,7 @@ We use the code from https://github.com/baol/waving-z as major reference of demo
 image!!!!!!!!
 The two Z-wave sensors are paired with the Z-stick. The Openhab is installed on Mac OS and Z-stick is connected to Mac to provide sensor data to UI. RTL-SDR is operating in Linux computer and we set the center frequency of the receiver to 908.42MHz and sample rate to 2MHz. A Zwave decoder program wriiten in C++ demodulates the signal and write each Z-wave instruction to output file.
 
-### Major Algorithm
+# Major Algorithm
 ## Demodulator:
 ## Sample State Machine
 ![Image](./images/SM1.png) 
