@@ -1,4 +1,4 @@
-## Sniffing Z-wave home sensors with SDR
+# Sniffing Z-wave home sensors with SDR
 
 This project aims to receive Z-wave home sensors signal with RTL-SDR and identify home activities based on Z-wave sensors data. 
 
@@ -44,14 +44,19 @@ The two Z-wave sensors are paired with the Z-stick. The Openhab is installed on 
 ![Image](./images/SM1.png) 
 
 **Idle**: Whenever the input bit is none, the state rest in Idle state. It move to the Lead_in state when input bit is not none.
+
 **Lead_in**: The pattern of preamble is 01010101.This state skip 10 symbol of the preamble. Check if this bit equal to the last bit. If yes, increase the counter of symbol. 
+
 **Preamble**: Use the preamble to calculate the sample per symbol rate. Read at least 20 preamble. Keep count of the sample_count and symbol count. After 20 symbol count, the sps= sample_count/symbol count
+
 **Bitlock**: skip the current incomplete symbol and direct to symbol SM. 
 
 ## Symbol State Machine
 ![Image](./images/SM2.png) 
 **Frame 1**: detect the first byte (0xff) of start of frame 
+
 **Frame 2**: detect the second byte (0x00) of SoF
+
 **Payload**: Reading and store as struct payload 
 
 
