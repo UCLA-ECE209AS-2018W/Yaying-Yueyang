@@ -2,7 +2,7 @@ import matplotlib.dates as mlab
 import matplotlib.pyplot as plt
 from datetime import datetime
 
-file_list=['data03-20-330-550.txt']
+file_list=['../data/data03-20-330-550.txt']
 for file in file_list:
     input_file = open(file)
     times=[]

@@ -23,6 +23,7 @@ As shown in Figure 2, physical frame consists of preamble and start of frame(SoF
 ## RTL-SDR
 RTL-SDR is a cheap (about $20) SDR receiver. With Osmocom package installed, the I/Q signal received from RTL-SDR can be read from computer and can be converted to work with SDR software such as Gnuradio. 
 The frequency range of RTL-SDR is from 24 to 1766 MHz, which enables us to receive Z-wave signal with it. The available sample rate are 225 to 300 KHZ  and 900K to 3MHZ. 
+Device Website: https://www.rtl-sdr.com/about-rtl-sdr/
 ## Antenna:
 This antenna is primarily used for signals between 700 MHz and 1200 MHz.
 ## Z-wave Sensors
@@ -36,7 +37,6 @@ Openhab is the software to be install at the PC that read data from z-stick. It 
 ## Code
 We use the code from https://github.com/baol/waving-z as major reference of demodulation of Z-wave signal.
 ## Putting it all together
-image!!!!!!!!
 The two Z-wave sensors are paired with the Z-stick. The Openhab is installed on Mac OS and Z-stick is connected to Mac to provide sensor data to UI. RTL-SDR is operating in Linux computer and we set the center frequency of the receiver to 908.42MHz and sample rate to 2MHz. A Zwave decoder program wriiten in C++ demodulates the signal and write each Z-wave instruction to output file.
 
 # Major Algorithm
@@ -62,7 +62,30 @@ The two Z-wave sensors are paired with the Z-stick. The Openhab is installed on 
 **Payload**: Reading and store as struct payload 
 
 
-### Related Work
+### Result Intepreate 
+
+
+When the primary controller is communicating with the nodes in its network, it should send out command class. However, if the specific node does not acknowledge data from the controller, header_type (first 8 bits) of Frame control will be 03; otherwise, it should be 41 to indicate header_type 1 for controller to provide data to its node. 
+
+The command class locates at the 9th byte in Z-wave instruction. Followings are the major command classes our sensor send out. We will be targeting the class 0x30 for the binary action of door/window sensor and 0x31 for multilevel sensor.  The byte after the 0x30 command class is the command type. For instance, in door/window sensor, the 10th byte we received is 0x05, which is the reporting door and window action to the controller. In the case of multilevel sensor, the byte following the command class represent the action of sensor. 0x40 is the get command sent from the controller and 0x50 is the report command sent from the sensor to report a particular value.  
+A little bit more about the multilevel sensor instruction. As we mentioned above, 9th byte in the instruction represents the command class and 10th byte represents the action. The 11th byte represents the sensor type of the sensor. 
+
+![Image](./images/command_class.jpg) 
+![Image](./images/command_type.jpg) 
+
+A little bit more about the multilevel sensor instruction. As we mentioned above, 9th byte in the instruction represents the command class and 10th byte represents the action. The 11th byte represents the sensor type of the sensor. With these information given, we're able to identify unknown sensor by sniffing the Z-wave packet.
+
+![Image](./images/sensor_type.jpg)  
+
+We also decode the information sending from the multilevel sensor and door sensor to the hub. And output the same value as the information picking up from hub. 
+
+![Image](./images/temp.jpg) 
+
+![Image](./images/door.png) 
+
+
+
+###  
 
 Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/UCLA-ECE209AS-2018W/Yaying-Yueyang/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
 

@@ -17,7 +17,7 @@ command_map={'71':'Alarm','9c':'Alarm Sensor', '9d': 'Alarm Silence', '27':'All 
             '86':'Version','84':'Wake Up','6a':'Window Covering','23':'Z/IP', '4f':'Z/IP 6LoWPAN','5f':'Z/IP Gateway','68':'Z/IP Naming and Location','58':'Z/IP ND', '61':'Z/IP Portal',
             '5e': 'Z-Wave Plus Info'}
 for file in file_list:
-    input_file=open(file)
+    input_file=open('../data/' + file)
     for line in input_file:
         tokens=line.split('@')
         if(len(tokens)<2):

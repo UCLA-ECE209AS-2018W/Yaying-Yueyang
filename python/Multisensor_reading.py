@@ -5,7 +5,7 @@ temp=[]
 hum=[]
 ultra=[]
 for file in file_list:
-    input_file=open(file)
+    input_file=open("../data/" + file)
     for line in input_file:
         tokens=line.split('@')
         if(len(tokens)<2):
