@@ -1,5 +1,5 @@
 # Waving-Z
-
+This folder is based on https://github.com/baol/waving-z. We do some modulation to work on our specific Z-wave sensors.
 This program is able to encode and decode ITU G.9959 frames
 (implemented, e.g. by the z-wave home automation protocol) using a
 RTL-SDR dongle or an HackRF One (or any other radio handling raw IQ
