@@ -12,11 +12,12 @@ When transmitting the data, sending node will have to obtain a ACK message to co
  
 As shown in Figure 1, Z-Wave protocol is composed of five layers, which are PHY layer, MAC layer, transport layer, network layer and application layer. 
 
-Image 1 !!!!!!
+![Image](./images/1.jpg) 
+
 
 As shown in Figure 2, physical frame consists of preamble and start of frame(SoF) for detection of valid MAC layer data frame containing device information and payload, then ended with end of frame(EoF). MAC Data Frame can then be divided into Home ID(32 bits), Source ID(8 bits), Frame Control(16 bits), Length(8 bits), Destination ID(8 bits), Data Payload as well as Checksum. Frame control determines frame type used in transport layer including singlecast, ACK, multicast, and broadcast. Figure 2 shows MAC singlecast Frame specifically. In the application layer, Data Payload is composed of Command Class(8 bits), Command(8 bits) and multiple parameters. 
 
-Image 2 !!!!!!!!
+![Image](./images/2.jpg) 
 
 # Implementation
 ## RTL-SDR
@@ -39,6 +40,7 @@ image!!!!!!!!
 The two Z-wave sensors are paired with the Z-stick. The Openhab is installed on Mac OS and Z-stick is connected to Mac to provide sensor data to UI. RTL-SDR is operating in Linux computer and we set the center frequency of the receiver to 908.42MHz and sample rate to 2MHz. A Zwave decoder program wriiten in C++ demodulates the signal and write each Z-wave instruction to output file.
 
 # Major Algorithm
+![Image](./images/3.jpg) 
 ## Demodulator:
 ## Sample State Machine
 ![Image](./images/SM1.png) 
@@ -59,28 +61,6 @@ The two Z-wave sensors are paired with the Z-stick. The Openhab is installed on 
 
 **Payload**: Reading and store as struct payload 
 
-
-
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
 ### Related Work
 
