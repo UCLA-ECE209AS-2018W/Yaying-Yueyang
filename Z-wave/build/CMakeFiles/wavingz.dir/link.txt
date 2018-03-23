@@ -1,0 +1,2 @@
+/usr/bin/ar qc libwavingz.a  CMakeFiles/wavingz.dir/wavingz.cpp.o
+/usr/bin/ranlib libwavingz.a

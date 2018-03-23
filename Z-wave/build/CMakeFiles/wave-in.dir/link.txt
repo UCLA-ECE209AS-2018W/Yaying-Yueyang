@@ -1,0 +1,1 @@
+/usr/bin/c++    -Wall -O3 -DNDEBUG   CMakeFiles/wave-in.dir/wave-in.cpp.o CMakeFiles/wave-in.dir/wavingz.cpp.o  -o wave-in -rdynamic -lboost_program_options libwavingz.a 

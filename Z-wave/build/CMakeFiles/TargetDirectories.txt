@@ -1,0 +1,10 @@
+/home/yaying/waving-z/build/CMakeFiles/edit_cache.dir
+/home/yaying/waving-z/build/CMakeFiles/rebuild_cache.dir
+/home/yaying/waving-z/build/CMakeFiles/test.dir
+/home/yaying/waving-z/build/CMakeFiles/wavingz.dir
+/home/yaying/waving-z/build/CMakeFiles/wave-out.dir
+/home/yaying/waving-z/build/CMakeFiles/wave-in.dir
+/home/yaying/waving-z/build/test/CMakeFiles/test.dir
+/home/yaying/waving-z/build/test/CMakeFiles/edit_cache.dir
+/home/yaying/waving-z/build/test/CMakeFiles/rebuild_cache.dir
+/home/yaying/waving-z/build/test/CMakeFiles/wavingz-test.dir
