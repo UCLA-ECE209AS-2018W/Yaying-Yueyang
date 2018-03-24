@@ -39,9 +39,8 @@ We use the code from https://github.com/baol/waving-z as major reference of demo
 ## Putting it all together
 The two Z-wave sensors are paired with the Z-stick. The Openhab is installed on Mac OS and Z-stick is connected to Mac to provide sensor data to UI. RTL-SDR is operating in Linux computer and we set the center frequency of the receiver to 908.42MHz and sample rate to 2MHz. A Zwave decoder program wriiten in C++ demodulates the signal and write each Z-wave instruction to output file.
 
-# Major Algorithm
-![Image](./images/3.jpg) 
-## Demodulator:
+# Major Algorithm for packet demodulation
+
 ## Sample State Machine
 ![Image](./images/SM1.png) 
 
