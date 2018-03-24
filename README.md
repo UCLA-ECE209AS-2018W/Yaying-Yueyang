@@ -62,7 +62,7 @@ The two Z-wave sensors are paired with the Z-stick. The Openhab is installed on 
 **Payload**: Reading and store as struct payload 
 
 
-### Result Intepreate 
+### Result Interpretation 
 
 
 When the primary controller is communicating with the nodes in its network, it should send out command class. However, if the specific node does not acknowledge data from the controller, header_type (first 8 bits) of Frame control will be 03; otherwise, it should be 41 to indicate header_type 1 for controller to provide data to its node. 
@@ -82,6 +82,33 @@ We also decode the information sending from the multilevel sensor and door senso
 ![Image](./images/temp.jpg) 
 
 ![Image](./images/door.png) 
+
+### Expand to unkown home setting
+Suppose we're giving an unknown home with Z-wave sensors and hub already connected. We can sniff the packet by implanting the SDR in a hidden location inside or outside the house to gather Z-wave packet. Then we map the command class from Z-wave dataset to identify unknown home Z-wave device setting. We can identify the sensor type and its command content. 
+``
+Found home device:  c3f673a5
+It has following node: 
+Node  03
+This Node has the following command class: 
+Binary Sensor
+Notification
+Wake Up
+Node  01
+This Node has the following command class: 
+Basic
+Battery
+Powerlevel
+Multilevel Sensor
+No Operation
+Binary Sensor
+Node  02
+This Node has the following command class: 
+Notification
+Battery
+Powerlevel
+Multilevel Sensor
+
+``
 
 
 
