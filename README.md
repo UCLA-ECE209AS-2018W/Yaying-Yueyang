@@ -75,7 +75,11 @@ A little bit more about the multilevel sensor instruction. As we mentioned above
 
 A little bit more about the multilevel sensor instruction. As we mentioned above, 9th byte in the instruction represents the command class and 10th byte represents the action. The 11th byte represents the sensor type of the sensor. With these information given, we're able to identify unknown sensor by sniffing the Z-wave packet.
 
-![Image](./images/sensor_type.jpg)  
+![Image](./images/sensor_type.jpg) 
+
+Read from datasheets:
+http://zwavepublic.com/sites/default/files/command_class_specs_2017A/SDS13548-5%20List%20of%20defined%20Z-Wave%20Command%20Classes.pdf 
+http://zwavepublic.com/sites/default/files/command_class_specs_2017A/SDS13812-2%20Multilevel%20Sensor%20Command%20Class%2C%20list%20of%20assigned%20Multilevel%20Sensor%20types%20and%20scales.pdf  
 
 We also decode the information sending from the multilevel sensor and door sensor to the hub. And output the same value as the information picking up from hub. 
 
@@ -112,10 +116,21 @@ Multilevel Sensor
 
 
 
-###  
+###  Future Work 
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/UCLA-ECE209AS-2018W/Yaying-Yueyang/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+Given the Z-wave sensors, we can infer the home activities based on the luminance, door/window action and motion detection. We believe that if we collect Z-wave packet for a long period for a home. We're able to identify the routine activies such as going out for work
 
-### 
+### Related Work
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+[1] J. Picod, A. Lebrun, and J. Demay, “Bringing Software Defined Radio to the Penetration Testing Community,” Black Hat Conference, Las Vegas, NV, Aug 2014. 
+
+This paper uses GNU Radio as the software to demodulate received signal, which is what we used at first as a reference for GNU Radio setup. Since Gnuradio is an open source software development kit and comes with a GUI, we decided to follow the paper to start with our project. In addition, at the Z-Wave part of this paper, unlike Zigbee, it was mentioned that Z-Wave does not transmit signals encrypted.
+
+[2] Behrang Fouladi and Sahand Ghanoun, Security Evaluation of the Z-Wave Wireless Protocol, Black Hat USA 2013. 
+
+This paper brings us with necessary background knowledge of Z-Wave protocol. However, a software called Z-Force was used in this paper to obtain door lock information without knowing the encryption keys.  It is stated in this paper that Z-Wave was actually encrypted in AES-128bits, which is different from what we read from the previous paper. We will need to evaluate this part after we received our demodulated signal data. In the vulnerability analysis part, this paper mentioned that Z-Wave chip has some build in hard coded temporary default key in the chip’s firmware. One way of attacking is by intercepting this encrypted key exchange frame and then decipher it. Reason for this easy attack in Z-Wave signal communication is due to lack of state validation during key exchange process.
+
+
+
+
+
