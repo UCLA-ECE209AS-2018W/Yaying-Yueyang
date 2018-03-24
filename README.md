@@ -85,7 +85,7 @@ We also decode the information sending from the multilevel sensor and door senso
 
 ### Expand to unkown home setting
 Suppose we're giving an unknown home with Z-wave sensors and hub already connected. We can sniff the packet by implanting the SDR in a hidden location inside or outside the house to gather Z-wave packet. Then we map the command class from Z-wave dataset to identify unknown home Z-wave device setting. We can identify the sensor type and its command content. 
-``
+```markdown
 Found home device:  c3f673a5
 It has following node: 
 Node  03
@@ -108,7 +108,7 @@ Battery
 Powerlevel
 Multilevel Sensor
 
-``
+```
 
 
 
