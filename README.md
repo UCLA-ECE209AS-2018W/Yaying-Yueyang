@@ -117,7 +117,13 @@ Multilevel Sensor
 
 ###  Future Work 
 
-Given the Z-wave sensors, we can infer the home activities based on the luminance, door/window action and motion detection. We believe that if we collect Z-wave packet for a long period for a home. We're able to identify the routine activies such as going out for work
+Given the Z-wave sensors, we can infer the home activities based on the luminance, door/window action and motion detection. We believe that if we collect Z-wave packet for a long period at home. We're able to identify the routine activies such as going out for work.
+
+Using the same methodoly that we have for sniffing Z-Wave signal, we may extend our sniffing program to other protocols, such as Zigbee. As we are using 908.42MHz as our center frequency in the Z-Wave circumstance. If we are planning to implement Zigbee sensors in our sniff program, we will need to take care of the frequency as Zigbee devices will operate at a different frequency.
+
+### Conclusion
+Based on our previous research, some paper states that Z-Wave communication is encrypted, while others do not. Two Z-Wave sensors that we are using provided us with raw data that is not encrypted, which means that adversary may easily intercept Z-Wave signals and threaten Z-Wave product users' privacy and safety. 
+
 
 ### Related Work
 
